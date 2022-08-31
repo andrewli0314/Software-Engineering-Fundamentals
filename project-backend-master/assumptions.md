@@ -1,0 +1,13 @@
+1. Once a user is registered they are automatically logged in
+2. For channel index function: Assumes that the channel is valid since errors have been checked.
+3. user sethandle: always has token passed to function
+4.  dm leave: at least one member will be in the dm
+5. auth permission change: they will not be allowed to change their own permission, 405 will be returned then only the global user can set himself as the global user, no error message, but cannot set himself as permission 2 user which is demoted to a user 
+6. remove a user: channel owner can be removed, then the channel does not have any owner if remover user is the only owner. Then only the global user can manage the channel.
+7. admin/user/remove/v1: for the removed user, the email and handle string will be "N/A"
+8. Search function assumes that it is not case-sensitive and looks for any message with the string given
+9. Assuming that on unreaction, the notification in the user's notification remains there
+10. admin/passwordreset/request/v1: A random six digit reset code will be send to user as reset code
+11. admin/passwordreset/request/v1: Even there is no error should be raised, if entered email is in wrong format, there still will be error message
+12. admin/passwordreset/reset/v1: If the password entered is same as current password, error message will be raised
+
